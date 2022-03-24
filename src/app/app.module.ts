@@ -12,6 +12,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { Router, RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,8 +29,9 @@ import {MatButtonModule} from '@angular/material/button';
     MatInputModule,
     MatIconModule,
     FormsModule,
-    MatButtonModule
-    
+    MatButtonModule,
+    MatCheckboxModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
