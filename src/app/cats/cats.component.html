@@ -1,0 +1,20 @@
+<div class="cat-image-container d-flex flex-column" > 
+    <mat-card  *ngFor="let post of posts"  style="width:100%; margin-right: auto;">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>Random Cat</mat-card-title>
+          <mat-card-subtitle>Cat knowledge</mat-card-subtitle>
+        </mat-card-header>
+        <mat-spinner style="margin-left:auto;margin-right: auto;" *ngIf="isLoading"></mat-spinner>
+        <img (load)="isLoading=false;" class="cat-image" mat-card-image [src]="post.image" alt="Photo of a Shiba Inu">
+        <mat-card-content>
+          <p style="padding:1rem">
+         {{ post.fact }}
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button>LIKE</button>
+          <button mat-button>SHARE</button>
+        </mat-card-actions>
+      </mat-card>
+</div>

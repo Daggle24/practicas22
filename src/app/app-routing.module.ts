@@ -13,6 +13,11 @@ const routes: Routes = [
   path:'profile',
   component:ProfileComponent
 },
+
+{
+  path:'cats',
+  loadChildren:()=>import('./cats/cats.module').then(m=>m.CatsModule)
+},
 {
   path: '**',
   component:NotfoundpageComponent

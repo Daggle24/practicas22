@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { UserDataServiceService } from '../user-data-service.service';
 
 export interface User {
@@ -15,7 +15,8 @@ export interface User {
 export class ProfileComponent implements OnInit {
 
 
-public inputEnabled:boolean = false;
+
+public inputEnabled:boolean = true;
 user:User = {
   name:'',
   avatar:''
@@ -39,12 +40,28 @@ public userName = this.user.name
 
     this.UserService.modifyUser({
       name:this.userName,
-      avatar:'',
+      avatar:this.user.avatar,
     })
     this.inputEnabled = false;
 
     console.log(this.user)
   }
+
+  onFileChanged(file:any){
+    let reader = new FileReader();
+
+    reader.onload = (event:any) => {
+      this.user.avatar = event.target.result;
+    }
+
+    if(file){
+      reader.readAsDataURL(file.target.files[0]);
+    }
+
+  }
+
+
+
 
 
 

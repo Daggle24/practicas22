@@ -1,8 +1,9 @@
 <div class="container d-flex justify-content-center p-4"> 
 
    <form>
-    <div class="img-dropper d-flex justify-content-center">
-        <img src="../assets/img/ArdisappLogo.png" width="60px" alt="logo" class="avatar-container-rounded img-fluid">
+    <input #fileInput style="visibility: hidden;" type="file" name="file" (change)="onFileChanged($event)"/>
+    <div (click)="fileInput.click()" class="img-dropper d-flex justify-content-center">
+        <img [src]="user.avatar? user.avatar : '../assets/img/incognito.png' " width="60px" alt="logo" class="avatar-container-rounded img-fluid">
     </div>
 
     <div class="name-container d-flex flex-column"> 
